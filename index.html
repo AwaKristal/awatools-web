@@ -7,58 +7,337 @@
 
   <!-- Librería de iconos Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="https://i.postimg.cc/NFwKzDYZ/Awa-Tools.png" type="image/png">
+
+  <style>
+    :root {
+      --bg-color: #0d1117;
+      --card-bg: #161b22;
+      --accent-color: #58a6ff;
+      --text-color: #c9d1d9;
+      --text-heading: #ffffff;
+      --border-color: #30363d;
+      --subtext-color: #8b949e;
+      --badge-bg: #238636;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 30px;
+      border-bottom: 1px solid var(--border-color);
+      max-width: 800px;
+      margin: 0 auto 40px auto;
+    }
+
+    .profile-avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent-color);
+      box-shadow: 0 4px 16px rgba(88, 166, 255, 0.25);
+      margin-bottom: 15px;
+    }
+
+    header h1 {
+      color: var(--text-heading);
+      font-size: 2.2rem;
+      margin-bottom: 5px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: var(--subtext-color);
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .card h2 {
+      color: var(--text-heading);
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      border-bottom: 2px solid var(--accent-color);
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+
+    .icon-title {
+      margin-right: 8px;
+      color: var(--accent-color);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background-color: var(--accent-color);
+      color: #0d1117;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 12px;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+      cursor: pointer;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      background-color: #79c0ff;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background-color: #21262d;
+      color: var(--text-color);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: #30363d;
+      color: #ffffff;
+    }
+
+    .btn-social {
+      width: 100%;
+      justify-content: flex-start;
+      padding: 14px 20px;
+      font-size: 1.05rem;
+    }
+
+    .social-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .icon-social {
+      font-size: 1.3rem;
+      width: 25px;
+      text-align: center;
+    }
+
+    .fa-youtube { color: #FF0000; }
+    .fa-twitch { color: #9146FF; }
+    .fa-steam { color: #66c0f4; }
+    .fa-github { color: #ffffff; }
+    .fa-reddit { color: #FF4500; }
+    .fa-spotify { color: #1DB954; }
+    .fa-discord { color: #5865F2; }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .feature-box {
+      background-color: #0d1117;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 16px;
+      transition: border-color 0.2s;
+    }
+
+    .feature-box:hover {
+      border-color: var(--accent-color);
+    }
+
+    .feature-icon {
+      font-size: 1.5rem;
+      color: var(--accent-color);
+      margin-bottom: 10px;
+    }
+
+    .feature-box h3 {
+      color: var(--text-heading);
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
+
+    .feature-box p {
+      font-size: 0.9rem;
+      color: var(--subtext-color);
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      margin-top: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #0d1117;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    th {
+      background-color: #21262d;
+      color: var(--text-heading);
+    }
+
+    code {
+      background-color: #21262d;
+      padding: 3px 8px;
+      border-radius: 4px;
+      color: var(--accent-color);
+      font-family: monospace;
+    }
+
+    .update-card {
+      background-color: #0d1117;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 16px;
+      margin-bottom: 15px;
+    }
+
+    .update-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .badge {
+      background-color: var(--badge-bg);
+      color: #ffffff;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 0.8rem;
+    }
+
+    .subtext {
+      font-size: 0.85rem;
+      color: var(--subtext-color);
+    }
+
+    .update-title {
+      color: var(--text-heading);
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .update-list {
+      list-style-type: none;
+      padding-left: 5px;
+    }
+
+    .update-list li {
+      font-size: 0.9rem;
+      color: var(--subtext-color);
+      margin-bottom: 4px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px;
+      color: var(--subtext-color);
+      border-top: 1px solid var(--border-color);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
 </head>
 <body>
 
   <header>
     <img src="https://i.postimg.cc/NFwKzDYZ/Awa-Tools.png" alt="AwaTools Avatar" class="profile-avatar">
     <h1>AwaTools Bot</h1>
-    <p>El bot multipropósito para llevar tu servidor de Discord al siguiente nivel</p>
+    <p>Bot multipropósito para Discord • Desarrollado por AwaKristal</p>
   </header>
 
   <!-- INTERFAZ PRINCIPAL -->
   <div id="view-main" class="container">
     
-    <!-- 1. INVITAR AL BOT Y COMUNIDAD -->
+    <!-- 1. ENLACES Y COMUNIDAD -->
     <section class="card">
-      <h2>Enlaces Rápidos</h2>
+      <h2><i class="fa-solid fa-link icon-title"></i> Enlaces Rápidos</h2>
       <br>
-      <p>Añade el bot a tu servidor o visita el repositorio oficial del proyecto.</p>
-      <div class="action-buttons">
+      <p>Añade el bot a tu servidor de Discord o consulta las redes del creador.</p>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
         <a href="#" target="_blank" class="btn">
           <i class="fa-brands fa-discord"></i> Añadir a Discord
         </a>
         <button onclick="toggleView('redes')" class="btn btn-secondary">
-          <i class="fa-solid fa-globe"></i> Redes del Creador
+          <i class="fa-solid fa-globe"></i> Ver Redes Sociales
         </button>
       </div>
     </section>
 
     <!-- 2. CARACTERÍSTICAS -->
     <section class="card">
-      <h2>Características</h2>
+      <h2><i class="fa-solid fa-star icon-title"></i> Características</h2>
       <br>
       <div class="features-grid">
-        <div>
-          <p><strong>🛠️ Utilidad Avanzada</strong></p>
-          <span class="subtext">Menús interactivos desplegables para consultar estado del bot e información del sistema.</span>
+        <div class="feature-box">
+          <i class="fa-solid fa-wrench feature-icon"></i>
+          <h3>Utilidad Avanzada</h3>
+          <p>Menús interactivos desplegables para consultar estado del bot e información técnica.</p>
         </div>
-        <div style="margin-top: 15px;">
-          <p><strong>🎉 Diversión y Juegos</strong></p>
-          <span class="subtext">Comandos interactivos, respuestas personalizadas y entretenimiento constante.</span>
+        <div class="feature-box">
+          <i class="fa-solid fa-gamepad feature-icon"></i>
+          <h3>Diversión y Juegos</h3>
+          <p>Comandos de azar, saludos personalizados y entretenimiento constante para tu comunidad.</p>
         </div>
-        <div style="margin-top: 15px;">
-          <p><strong>⚡ Rendimiento Eficiente</strong></p>
-          <span class="subtext">Construido en Discord.js v14 con respuesta instantánea en milisegundos.</span>
+        <div class="feature-box">
+          <i class="fa-solid fa-bolt feature-icon"></i>
+          <h3>Alto Rendimiento</h3>
+          <p>Construido sobre Discord.js v14 con cálculo de respuesta en milisegundos en tiempo real.</p>
         </div>
       </div>
     </section>
 
-    <!-- 3. COMANDOS -->
+    <!-- 3. TABLA DE COMANDOS -->
     <section class="card">
-      <h2>Comandos Disponibles</h2>
+      <h2><i class="fa-solid fa-terminal icon-title"></i> Comandos Disponibles</h2>
       <br>
       <div class="table-wrapper">
         <table>
@@ -73,22 +352,22 @@
             <tr>
               <td><code>AThelp</code></td>
               <td>Utilidad</td>
-              <td>Menú desplegable interactivo con categorías de comandos.</td>
+              <td>Despliega el menú interactivo con categorías.</td>
             </tr>
             <tr>
               <td><code>ATbot</code></td>
               <td>Utilidad</td>
-              <td>Muestra información técnica, tiempo activo y creador.</td>
+              <td>Muestra la información técnica, tiempo activo y creador.</td>
             </tr>
             <tr>
               <td><code>ATping</code></td>
               <td>Diversión</td>
-              <td>Muestra la latencia en milisegundos de la conexión.</td>
+              <td>Calcula la latencia real en milisegundos.</td>
             </tr>
             <tr>
               <td><code>AThola</code></td>
               <td>Diversión</td>
-              <td>Envía un saludo personalizado al usuario.</td>
+              <td>Responde con un saludo personalizado al usuario.</td>
             </tr>
           </tbody>
         </table>
@@ -97,28 +376,28 @@
 
     <!-- 4. HISTORIAL DE ACTUALIZACIONES -->
     <section class="card">
-      <h2>Historial de Actualizaciones</h2>
+      <h2><i class="fa-solid fa-bullhorn icon-title"></i> Historial de Actualizaciones</h2>
       <br>
       
-      <div class="update-item">
+      <div class="update-card">
         <div class="update-header">
           <span class="badge">v1.1.0</span>
           <span class="subtext">29 de Agosto, 2026</span>
         </div>
-        <p><strong>🛠️ Categoría Utilidad & Menús Desplegables</strong></p>
+        <p class="update-title">🛠️ Categoría Utilidad & Menús Desplegables</p>
         <ul class="update-list">
           <li>✨ Nuevo comando: <code>ATbot</code> para ver información técnica y tiempo vivo.</li>
           <li>🎉 Menú interactivo: Rediseño de <code>AThelp</code> con menús de selección.</li>
-          <li>⚡ Ping Real: Cálculo de latencia exacta de respuestas en milisegundos.</li>
+          <li>⚡ Ping Real: Lectura de latencia exacta en milisegundos.</li>
         </ul>
       </div>
 
-      <div class="update-item" style="margin-top: 20px;">
+      <div class="update-card">
         <div class="update-header">
           <span class="badge">v1.0.0</span>
           <span class="subtext">25 de Agosto, 2026</span>
         </div>
-        <p><strong>🚀 Lanzamiento Inicial</strong></p>
+        <p class="update-title">🚀 Lanzamiento Inicial</p>
         <ul class="update-list">
           <li>🤖 Configuración base del cliente en Discord.js v14.</li>
           <li>💬 Comandos base iniciales: <code>ATping</code> y <code>AThola</code>.</li>
@@ -128,14 +407,14 @@
 
   </div>
 
-  <!-- INTERFAZ DE REDES DEL CREADOR (Al dar clic en "Redes del Creador") -->
+  <!-- INTERFAZ DE REDES (Vista Secundaria) -->
   <div id="view-redes" class="container hidden">
     <section class="card">
       <button onclick="toggleView('main')" class="btn btn-secondary" style="margin-top: 0; margin-bottom: 20px;">
         <i class="fa-solid fa-arrow-left"></i> Regresar a la página principal
       </button>
 
-      <h2>Redes de AwaKristal</h2>
+      <h2><i class="fa-solid fa-user icon-title"></i> Mis Redes Sociales</h2>
       
       <div class="social-grid">
         <a href="https://www.youtube.com/@AwaKristal" target="_blank" class="btn btn-secondary btn-social">
