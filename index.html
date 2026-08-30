@@ -49,7 +49,7 @@
       border-radius: 50%;
       object-fit: cover;
       border: 3px solid var(--accent-color);
-      box-shadow: 0 4px 16px rgba(88, 166, 255, 0.25);
+      box-shadow: 0 4px 12px rgba(88, 166, 255, 0.2);
       margin-bottom: 15px;
     }
 
@@ -81,16 +81,10 @@
 
     .card h2 {
       color: var(--text-heading);
-      font-size: 1.3rem;
       margin-bottom: 12px;
       border-bottom: 2px solid var(--accent-color);
       display: inline-block;
       padding-bottom: 4px;
-    }
-
-    .icon-title {
-      margin-right: 8px;
-      color: var(--accent-color);
     }
 
     .btn {
@@ -155,45 +149,10 @@
     .fa-spotify { color: #1DB954; }
     .fa-discord { color: #5865F2; }
 
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 15px;
-      margin-top: 10px;
-    }
-
-    .feature-box {
-      background-color: #0d1117;
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      padding: 16px;
-      transition: border-color 0.2s;
-    }
-
-    .feature-box:hover {
-      border-color: var(--accent-color);
-    }
-
-    .feature-icon {
-      font-size: 1.5rem;
-      color: var(--accent-color);
-      margin-bottom: 10px;
-    }
-
-    .feature-box h3 {
-      color: var(--text-heading);
-      font-size: 1.05rem;
-      margin-bottom: 6px;
-    }
-
-    .feature-box p {
-      font-size: 0.9rem;
-      color: var(--subtext-color);
-    }
-
+    /* TABLA LIMPIA (Estilo GitHub) */
     .table-wrapper {
       overflow-x: auto;
-      margin-top: 10px;
+      margin-top: 15px;
     }
 
     table {
@@ -224,12 +183,13 @@
       font-family: monospace;
     }
 
-    .update-card {
+    /* HISTORIAL DE ACTUALIZACIONES */
+    .update-box {
       background-color: #0d1117;
       border: 1px solid var(--border-color);
       border-radius: 6px;
       padding: 16px;
-      margin-bottom: 15px;
+      margin-top: 15px;
     }
 
     .update-header {
@@ -248,26 +208,20 @@
       font-size: 0.8rem;
     }
 
-    .subtext {
-      font-size: 0.85rem;
-      color: var(--subtext-color);
-    }
-
-    .update-title {
-      color: var(--text-heading);
-      font-weight: bold;
-      margin-bottom: 6px;
-    }
-
     .update-list {
-      list-style-type: none;
+      list-style: none;
       padding-left: 5px;
+      margin-top: 8px;
     }
 
     .update-list li {
-      font-size: 0.9rem;
-      color: var(--subtext-color);
+      font-size: 0.95rem;
+      color: var(--text-color);
       margin-bottom: 4px;
+    }
+
+    #view-main, #view-redes {
+      transition: opacity 0.3s ease;
     }
 
     .hidden {
@@ -299,12 +253,12 @@
     
     <!-- 1. ENLACES Y COMUNIDAD -->
     <section class="card">
-      <h2><i class="fa-solid fa-link icon-title"></i> Enlaces Rápidos</h2>
+      <h2>Servidor y Bot</h2>
       <br>
-      <p>Añade el bot a tu servidor de Discord o consulta las redes del creador.</p>
+      <p>Añade el bot a tu servidor de Discord o consulta mis redes.</p>
       <div style="display: flex; gap: 10px; flex-wrap: wrap;">
         <a href="#" target="_blank" class="btn">
-          <i class="fa-brands fa-discord"></i> Añadir a Discord
+          <i class="fa-brands fa-discord"></i> Invitar Bot
         </a>
         <button onclick="toggleView('redes')" class="btn btn-secondary">
           <i class="fa-solid fa-globe"></i> Ver Redes Sociales
@@ -312,33 +266,11 @@
       </div>
     </section>
 
-    <!-- 2. CARACTERÍSTICAS -->
+    <!-- 2. TABLA DE COMANDOS -->
     <section class="card">
-      <h2><i class="fa-solid fa-star icon-title"></i> Características</h2>
+      <h2>Comandos Disponibles</h2>
       <br>
-      <div class="features-grid">
-        <div class="feature-box">
-          <i class="fa-solid fa-wrench feature-icon"></i>
-          <h3>Utilidad Avanzada</h3>
-          <p>Menús interactivos desplegables para consultar estado del bot e información técnica.</p>
-        </div>
-        <div class="feature-box">
-          <i class="fa-solid fa-gamepad feature-icon"></i>
-          <h3>Diversión y Juegos</h3>
-          <p>Comandos de azar, saludos personalizados y entretenimiento constante para tu comunidad.</p>
-        </div>
-        <div class="feature-box">
-          <i class="fa-solid fa-bolt feature-icon"></i>
-          <h3>Alto Rendimiento</h3>
-          <p>Construido sobre Discord.js v14 con cálculo de respuesta en milisegundos en tiempo real.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. TABLA DE COMANDOS -->
-    <section class="card">
-      <h2><i class="fa-solid fa-terminal icon-title"></i> Comandos Disponibles</h2>
-      <br>
+      <p>Lista de comandos actuales de AwaTools:</p>
       <div class="table-wrapper">
         <table>
           <thead>
@@ -367,37 +299,38 @@
             <tr>
               <td><code>AThola</code></td>
               <td>Diversión</td>
-              <td>Responde con un saludo personalizado al usuario.</td>
+              <td>Responde con un saludo personalizado.</td>
             </tr>
           </tbody>
         </table>
       </div>
     </section>
 
-    <!-- 4. HISTORIAL DE ACTUALIZACIONES -->
+    <!-- 3. ACTUALIZACIONES -->
     <section class="card">
-      <h2><i class="fa-solid fa-bullhorn icon-title"></i> Historial de Actualizaciones</h2>
+      <h2>Historial de Actualizaciones</h2>
       <br>
+      <p>Novedades y cambios recientes implementados en el bot.</p>
       
-      <div class="update-card">
+      <div class="update-box">
         <div class="update-header">
           <span class="badge">v1.1.0</span>
-          <span class="subtext">29 de Agosto, 2026</span>
+          <span style="font-size: 0.85rem; color: var(--subtext-color);">29/08/2026</span>
         </div>
-        <p class="update-title">🛠️ Categoría Utilidad & Menús Desplegables</p>
+        <p><strong>🛠️ Categoría Utilidad & Menús Desplegables</strong></p>
         <ul class="update-list">
-          <li>✨ Nuevo comando: <code>ATbot</code> para ver información técnica y tiempo vivo.</li>
-          <li>🎉 Menú interactivo: Rediseño de <code>AThelp</code> con menús de selección.</li>
-          <li>⚡ Ping Real: Lectura de latencia exacta en milisegundos.</li>
+          <li>✨ Comando <code>ATbot</code> para ver especificaciones y tiempo activo.</li>
+          <li>🎉 Rediseño de <code>AThelp</code> con menús de selección.</li>
+          <li>⚡ Cálculo de latencia exacta en milisegundos.</li>
         </ul>
       </div>
 
-      <div class="update-card">
+      <div class="update-box">
         <div class="update-header">
           <span class="badge">v1.0.0</span>
-          <span class="subtext">25 de Agosto, 2026</span>
+          <span style="font-size: 0.85rem; color: var(--subtext-color);">25/08/2026</span>
         </div>
-        <p class="update-title">🚀 Lanzamiento Inicial</p>
+        <p><strong>🚀 Lanzamiento Inicial</strong></p>
         <ul class="update-list">
           <li>🤖 Configuración base del cliente en Discord.js v14.</li>
           <li>💬 Comandos base iniciales: <code>ATping</code> y <code>AThola</code>.</li>
@@ -407,14 +340,14 @@
 
   </div>
 
-  <!-- INTERFAZ DE REDES (Vista Secundaria) -->
+  <!-- INTERFAZ DE REDES SOCIALES -->
   <div id="view-redes" class="container hidden">
     <section class="card">
       <button onclick="toggleView('main')" class="btn btn-secondary" style="margin-top: 0; margin-bottom: 20px;">
         <i class="fa-solid fa-arrow-left"></i> Regresar a la página principal
       </button>
 
-      <h2><i class="fa-solid fa-user icon-title"></i> Mis Redes Sociales</h2>
+      <h2>Mis Redes Sociales</h2>
       
       <div class="social-grid">
         <a href="https://www.youtube.com/@AwaKristal" target="_blank" class="btn btn-secondary btn-social">
