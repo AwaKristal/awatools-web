@@ -1,117 +1,184 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AwaTools Bot - Sitio Oficial</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="https://i.postimg.cc/NFwKzDYZ/Awa-Tools.png" type="image/png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AwaTools Bot | Sitio Oficial</title>
+
+  <!-- Librería de iconos Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="https://i.postimg.cc/NFwKzDYZ/Awa-Tools.png" type="image/png">
 </head>
 <body>
 
-    <header class="hero">
-        <div class="container">
-            <img src="https://i.postimg.cc/NFwKzDYZ/Awa-Tools.png" alt="AwaTools Avatar" class="bot-avatar">
-            <h1>AwaTools Bot</h1>
-            <p class="tagline">El bot multipropósito perfecto para gestionar y entretener a tu comunidad de Discord.</p>
-            <div class="cta-buttons">
-                <a href="#" class="btn btn-primary" target="_blank">🤖 Añadir a Discord</a>
-                <a href="https://github.com/AwaKristal" class="btn btn-secondary" target="_blank">💻 GitHub de AwaKristal</a>
-            </div>
+  <header>
+    <img src="https://i.postimg.cc/NFwKzDYZ/Awa-Tools.png" alt="AwaTools Avatar" class="profile-avatar">
+    <h1>AwaTools Bot</h1>
+    <p>El bot multipropósito para llevar tu servidor de Discord al siguiente nivel</p>
+  </header>
+
+  <!-- INTERFAZ PRINCIPAL -->
+  <div id="view-main" class="container">
+    
+    <!-- 1. INVITAR AL BOT Y COMUNIDAD -->
+    <section class="card">
+      <h2>Enlaces Rápidos</h2>
+      <br>
+      <p>Añade el bot a tu servidor o visita el repositorio oficial del proyecto.</p>
+      <div class="action-buttons">
+        <a href="#" target="_blank" class="btn">
+          <i class="fa-brands fa-discord"></i> Añadir a Discord
+        </a>
+        <button onclick="toggleView('redes')" class="btn btn-secondary">
+          <i class="fa-solid fa-globe"></i> Redes del Creador
+        </button>
+      </div>
+    </section>
+
+    <!-- 2. CARACTERÍSTICAS -->
+    <section class="card">
+      <h2>Características</h2>
+      <br>
+      <div class="features-grid">
+        <div>
+          <p><strong>🛠️ Utilidad Avanzada</strong></p>
+          <span class="subtext">Menús interactivos desplegables para consultar estado del bot e información del sistema.</span>
         </div>
-    </header>
-
-    <main class="container">
-        <section class="features">
-            <h2>✨ Características</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>🛠️ Utilidad Avanzada</h3>
-                    <p>Menús interactivos desplegables para consultar métricas, estado del bot e información del sistema.</p>
-                </div>
-                <div class="card">
-                    <h3>🎉 Diversión y Juegos</h3>
-                    <p>Comandos interactivos, juegos de azar y respuestas personalizadas para los miembros.</p>
-                </div>
-                <div class="card">
-                    <h3>⚡ Rendimiento y Latencia</h3>
-                    <p>Construido sobre Discord.js v14 con cálculo de respuesta en tiempo real en milisegundos.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="commands">
-            <h2>📜 Comandos Disponibles</h2>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Comando</th>
-                            <th>Categoría</th>
-                            <th>Descripción</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>AThelp</code></td>
-                            <td>Utilidad</td>
-                            <td>Muestra el menú desplegable interactivo con categorías de comandos.</td>
-                        </tr>
-                        <tr>
-                            <td><code>ATbot</code></td>
-                            <td>Utilidad</td>
-                            <td>Despliega la información técnica del bot, tiempo activo y creador.</td>
-                        </tr>
-                        <tr>
-                            <td><code>ATping</code></td>
-                            <td>Diversión</td>
-                            <td>Calcula y muestra la latencia exacta de respuesta en milisegundos.</td>
-                        </tr>
-                        <tr>
-                            <td><code>AThola</code></td>
-                            <td>Diversión</td>
-                            <td>Responde con un saludo personalizado hacia el usuario.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <section class="updates">
-            <h2>📢 Historial de Actualizaciones</h2>
-
-            <div class="update-card">
-                <div class="update-header">
-                    <span class="version-badge">v1.1.0</span>
-                    <span class="update-date">29 de Agosto, 2026</span>
-                </div>
-                <h3>🛠️ Categoría Utilidad & Menús Desplegables</h3>
-                <ul>
-                    <li>✨ <strong>Nuevo comando:</strong> Se agregó <code>ATbot</code> para consultar datos técnicos, creador y tiempo activo.</li>
-                    <li>🎉 <strong>Menú Interactivo:</strong> Rediseño de <code>AThelp</code> usando <code>StringSelectMenuBuilder</code>.</li>
-                    <li>⚡ <strong>Ping Real:</strong> Actualización de <code>ATping</code> con lectura de latencia en milisegundos.</li>
-                </ul>
-            </div>
-
-            <div class="update-card">
-                <div class="update-header">
-                    <span class="version-badge">v1.0.0</span>
-                    <span class="update-date">25 de Agosto, 2026</span>
-                </div>
-                <h3>🚀 Lanzamiento Inicial</h3>
-                <ul>
-                    <li>🤖 Configuración base del cliente y conexión en Discord.js v14.</li>
-                    <li>💬 Integración de comandos básicos iniciales: <code>ATping</code> y <code>AThola</code>.</li>
-                </ul>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 AwaTools Bot • Desarrollado por <strong>AwaKristal</strong></p>
+        <div style="margin-top: 15px;">
+          <p><strong>🎉 Diversión y Juegos</strong></p>
+          <span class="subtext">Comandos interactivos, respuestas personalizadas y entretenimiento constante.</span>
         </div>
-    </footer>
+        <div style="margin-top: 15px;">
+          <p><strong>⚡ Rendimiento Eficiente</strong></p>
+          <span class="subtext">Construido en Discord.js v14 con respuesta instantánea en milisegundos.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. COMANDOS -->
+    <section class="card">
+      <h2>Comandos Disponibles</h2>
+      <br>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Comando</th>
+              <th>Categoría</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>AThelp</code></td>
+              <td>Utilidad</td>
+              <td>Menú desplegable interactivo con categorías de comandos.</td>
+            </tr>
+            <tr>
+              <td><code>ATbot</code></td>
+              <td>Utilidad</td>
+              <td>Muestra información técnica, tiempo activo y creador.</td>
+            </tr>
+            <tr>
+              <td><code>ATping</code></td>
+              <td>Diversión</td>
+              <td>Muestra la latencia en milisegundos de la conexión.</td>
+            </tr>
+            <tr>
+              <td><code>AThola</code></td>
+              <td>Diversión</td>
+              <td>Envía un saludo personalizado al usuario.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 4. HISTORIAL DE ACTUALIZACIONES -->
+    <section class="card">
+      <h2>Historial de Actualizaciones</h2>
+      <br>
+      
+      <div class="update-item">
+        <div class="update-header">
+          <span class="badge">v1.1.0</span>
+          <span class="subtext">29 de Agosto, 2026</span>
+        </div>
+        <p><strong>🛠️ Categoría Utilidad & Menús Desplegables</strong></p>
+        <ul class="update-list">
+          <li>✨ Nuevo comando: <code>ATbot</code> para ver información técnica y tiempo vivo.</li>
+          <li>🎉 Menú interactivo: Rediseño de <code>AThelp</code> con menús de selección.</li>
+          <li>⚡ Ping Real: Cálculo de latencia exacta de respuestas en milisegundos.</li>
+        </ul>
+      </div>
+
+      <div class="update-item" style="margin-top: 20px;">
+        <div class="update-header">
+          <span class="badge">v1.0.0</span>
+          <span class="subtext">25 de Agosto, 2026</span>
+        </div>
+        <p><strong>🚀 Lanzamiento Inicial</strong></p>
+        <ul class="update-list">
+          <li>🤖 Configuración base del cliente en Discord.js v14.</li>
+          <li>💬 Comandos base iniciales: <code>ATping</code> y <code>AThola</code>.</li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- INTERFAZ DE REDES DEL CREADOR (Al dar clic en "Redes del Creador") -->
+  <div id="view-redes" class="container hidden">
+    <section class="card">
+      <button onclick="toggleView('main')" class="btn btn-secondary" style="margin-top: 0; margin-bottom: 20px;">
+        <i class="fa-solid fa-arrow-left"></i> Regresar a la página principal
+      </button>
+
+      <h2>Redes de AwaKristal</h2>
+      
+      <div class="social-grid">
+        <a href="https://www.youtube.com/@AwaKristal" target="_blank" class="btn btn-secondary btn-social">
+          <i class="fa-brands fa-youtube icon-social"></i> YouTube
+        </a>
+        <a href="https://www.twitch.tv/awakristal" target="_blank" class="btn btn-secondary btn-social">
+          <i class="fa-brands fa-twitch icon-social"></i> Twitch
+        </a>
+        <a href="https://steamcommunity.com/id/AwaKristal/" target="_blank" class="btn btn-secondary btn-social">
+          <i class="fa-brands fa-steam icon-social"></i> Steam
+        </a>
+        <a href="https://github.com/AwaKristal" target="_blank" class="btn btn-secondary btn-social">
+          <i class="fa-brands fa-github icon-social"></i> GitHub
+        </a>
+        <a href="https://www.reddit.com/user/AwaKristal/" target="_blank" class="btn btn-secondary btn-social">
+          <i class="fa-brands fa-reddit-alien icon-social"></i> Reddit
+        </a>
+        <a href="https://open.spotify.com/user/31k55q3br423cyenzlyy4nttpp3y" target="_blank" class="btn btn-secondary btn-social">
+          <i class="fa-brands fa-spotify icon-social"></i> Spotify
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 AwaTools Bot • Desarrollado por AwaKristal</p>
+  </footer>
+
+  <script>
+    function toggleView(view) {
+      const mainView = document.getElementById('view-main');
+      const redesView = document.getElementById('view-redes');
+
+      if (view === 'redes') {
+        mainView.classList.add('hidden');
+        redesView.classList.remove('hidden');
+      } else {
+        redesView.classList.add('hidden');
+        mainView.classList.remove('hidden');
+      }
+      window.scrollTo(0, 0);
+    }
+  </script>
 
 </body>
 </html>
