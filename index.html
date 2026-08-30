@@ -183,20 +183,20 @@
       font-family: monospace;
     }
 
-    /* HISTORIAL DE ACTUALIZACIONES */
+    /* TARJETA DE ACTUALIZACIÓN SÚPER COMPACTA */
     .update-box {
       background-color: #0d1117;
       border: 1px solid var(--border-color);
       border-radius: 6px;
-      padding: 16px;
-      margin-top: 15px;
+      padding: 14px 16px;
+      margin-top: 12px;
     }
 
     .update-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .badge {
@@ -211,17 +211,13 @@
     .update-list {
       list-style: none;
       padding-left: 5px;
-      margin-top: 8px;
+      margin-top: 6px;
     }
 
     .update-list li {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: var(--text-color);
-      margin-bottom: 4px;
-    }
-
-    #view-main, #view-redes {
-      transition: opacity 0.3s ease;
+      margin-bottom: 3px;
     }
 
     .hidden {
@@ -248,29 +244,69 @@
     <p>Bot multipropósito para Discord • Desarrollado por AwaKristal</p>
   </header>
 
-  <!-- INTERFAZ PRINCIPAL -->
+  <!-- VISTA PRINCIPAL (Página de inicio limpia) -->
   <div id="view-main" class="container">
     
-    <!-- 1. ENLACES Y COMUNIDAD -->
+    <!-- 1. SERVIDOR Y BOT -->
     <section class="card">
       <h2>Servidor y Bot</h2>
       <br>
-      <p>Añade el bot a tu servidor de Discord o consulta mis redes.</p>
+      <p>Añade el bot a tu servidor de Discord o accede a los perfiles del creador.</p>
       <div style="display: flex; gap: 10px; flex-wrap: wrap;">
         <a href="#" target="_blank" class="btn">
           <i class="fa-brands fa-discord"></i> Invitar Bot
         </a>
-        <button onclick="toggleView('redes')" class="btn btn-secondary">
+        <button onclick="switchView('redes')" class="btn btn-secondary">
           <i class="fa-solid fa-globe"></i> Ver Redes Sociales
         </button>
       </div>
     </section>
 
-    <!-- 2. TABLA DE COMANDOS -->
+    <!-- 2. ÚLTIMA NOVEDAD (Versión corta en la portada) -->
     <section class="card">
+      <h2>Última Novedad</h2>
+      <br>
+      <div class="update-box">
+        <div class="update-header">
+          <span class="badge">v1.1.0</span>
+          <span style="font-size: 0.85rem; color: var(--subtext-color);">29/08/2026</span>
+        </div>
+        <p><strong>🛠️ Categoría Utilidad & Menús Desplegables</strong></p>
+        <ul class="update-list">
+          <li>✨ Nuevo comando <code>ATbot</code> con especificaciones del sistema.</li>
+          <li>🎉 Menú interactivo <code>AThelp</code> con lista desplegable.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3. EXPLORAR CONTENIDO (Botones hacia otras vistas) -->
+    <section class="card">
+      <h2>Documentación</h2>
+      <br>
+      <p>Consulta la lista completa de comandos o el historial de versiones del bot.</p>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <button onclick="switchView('comandos')" class="btn">
+          <i class="fa-solid fa-terminal"></i> Ver Comandos
+        </button>
+        <button onclick="switchView('updates')" class="btn btn-secondary">
+          <i class="fa-solid fa-bullhorn"></i> Ver Actualizaciones
+        </button>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- VISTA 2: LISTA COMPLETA DE COMANDOS -->
+  <div id="view-comandos" class="container hidden">
+    <section class="card">
+      <button onclick="switchView('main')" class="btn btn-secondary" style="margin-top: 0; margin-bottom: 20px;">
+        <i class="fa-solid fa-arrow-left"></i> Regresar a la página principal
+      </button>
+
       <h2>Comandos Disponibles</h2>
       <br>
-      <p>Lista de comandos actuales de AwaTools:</p>
+      <p>Lista de todos los comandos integrados en AwaTools:</p>
+      
       <div class="table-wrapper">
         <table>
           <thead>
@@ -299,19 +335,26 @@
             <tr>
               <td><code>AThola</code></td>
               <td>Diversión</td>
-              <td>Responde con un saludo personalizado.</td>
+              <td>Responde con un saludo personalizado al usuario.</td>
             </tr>
           </tbody>
         </table>
       </div>
     </section>
+  </div>
 
-    <!-- 3. ACTUALIZACIONES -->
+  <!-- VISTA 3: HISTORIAL COMPLETO DE ACTUALIZACIONES -->
+  <div id="view-updates" class="container hidden">
     <section class="card">
+      <button onclick="switchView('main')" class="btn btn-secondary" style="margin-top: 0; margin-bottom: 20px;">
+        <i class="fa-solid fa-arrow-left"></i> Regresar a la página principal
+      </button>
+
       <h2>Historial de Actualizaciones</h2>
       <br>
-      <p>Novedades y cambios recientes implementados en el bot.</p>
+      <p>Registro de cambios e historial de versiones lanzadas:</p>
       
+      <!-- Update 1.1.0 -->
       <div class="update-box">
         <div class="update-header">
           <span class="badge">v1.1.0</span>
@@ -319,12 +362,13 @@
         </div>
         <p><strong>🛠️ Categoría Utilidad & Menús Desplegables</strong></p>
         <ul class="update-list">
-          <li>✨ Comando <code>ATbot</code> para ver especificaciones y tiempo activo.</li>
-          <li>🎉 Rediseño de <code>AThelp</code> con menús de selección.</li>
-          <li>⚡ Cálculo de latencia exacta en milisegundos.</li>
+          <li>✨ Nuevo comando: <code>ATbot</code> para ver información técnica y tiempo vivo.</li>
+          <li>🎉 Menú interactivo: Rediseño de <code>AThelp</code> con menús de selección.</li>
+          <li>⚡ Ping Real: Lectura de latencia exacta en milisegundos.</li>
         </ul>
       </div>
 
+      <!-- Update 1.0.0 -->
       <div class="update-box">
         <div class="update-header">
           <span class="badge">v1.0.0</span>
@@ -336,14 +380,14 @@
           <li>💬 Comandos base iniciales: <code>ATping</code> y <code>AThola</code>.</li>
         </ul>
       </div>
-    </section>
 
+    </section>
   </div>
 
-  <!-- INTERFAZ DE REDES SOCIALES -->
+  <!-- VISTA 4: MIS REDES SOCIALES -->
   <div id="view-redes" class="container hidden">
     <section class="card">
-      <button onclick="toggleView('main')" class="btn btn-secondary" style="margin-top: 0; margin-bottom: 20px;">
+      <button onclick="switchView('main')" class="btn btn-secondary" style="margin-top: 0; margin-bottom: 20px;">
         <i class="fa-solid fa-arrow-left"></i> Regresar a la página principal
       </button>
 
@@ -377,17 +421,20 @@
   </footer>
 
   <script>
-    function toggleView(view) {
-      const mainView = document.getElementById('view-main');
-      const redesView = document.getElementById('view-redes');
+    function switchView(targetView) {
+      const views = ['main', 'comandos', 'updates', 'redes'];
 
-      if (view === 'redes') {
-        mainView.classList.add('hidden');
-        redesView.classList.remove('hidden');
-      } else {
-        redesView.classList.add('hidden');
-        mainView.classList.remove('hidden');
-      }
+      views.forEach(view => {
+        const el = document.getElementById('view-' + view);
+        if (el) {
+          if (view === targetView) {
+            el.classList.remove('hidden');
+          } else {
+            el.classList.add('hidden');
+          }
+        }
+      });
+
       window.scrollTo(0, 0);
     }
   </script>
